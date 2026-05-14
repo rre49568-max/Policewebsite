@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرطة العكل</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#111;
+    color:white;
+    direction:rtl;
+}
+
+header{
+    background:#1e1e1e;
+    padding:15px;
+    position:relative;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    border-bottom:2px solid #00aaff;
+}
+
+.menu-btn{
+    position:absolute;
+    right:15px;
+    top:8px;
+    font-size:35px;
+    cursor:pointer;
+}
+
+.sidebar{
+    position:fixed;
+    top:0;
+    right:-260px;
+    width:250px;
+    height:100%;
+    background:#222;
+    transition:0.4s;
+    padding-top:60px;
+    box-shadow:-3px 0 10px rgba(0,0,0,0.5);
+}
+
+.sidebar a{
+    display:block;
+    padding:15px;
+    color:white;
+    text-decoration:none;
+    border-bottom:1px solid #333;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:#00aaff;
+}
+
+.content{
+    padding:30px;
+    text-align:center;
+}
+
+.box{
+    background:#1b1b1b;
+    padding:20px;
+    border-radius:15px;
+    margin:auto;
+    max-width:600px;
+    box-shadow:0 0 10px rgba(0,170,255,0.5);
+}
+
+h2{
+    color:#00aaff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+شرطة العكل
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</header>
+
+<div class="sidebar" id="sidebar">
+    <a href="#" onclick="showSoldiers()">اسم العساكر ورتبهم</a>
+    <a href="#" onclick="showAbout()">تعريف شرطة رول العكل</a>
+</div>
+
+<div class="content">
+    <div class="box" id="mainContent">
+        <h2>مرحباً بك</h2>
+        <p>هذا الموقع الرسمي لشرطة العكل.</p>
+    </div>
+</div>
+
+<script>
+
+let opened = false;
+
+function toggleMenu(){
+
+    const sidebar = document.getElementById("sidebar");
+
+    if(opened){
+        sidebar.style.right = "-260px";
+        opened = false;
+    } else {
+        sidebar.style.right = "0px";
+        opened = true;
+    }
+}
+
+function showSoldiers(){
+
+    document.getElementById("mainContent").innerHTML = `
+        <h2>اسم العساكر ورتبهم</h2>
+
+        <p>يوسف : جندي (تجربة)</p>
+
+        <p>ديفس : جندي اول (تجربة)</p>
+    `;
+
+    toggleMenu();
+}
+
+function showAbout(){
+
+    document.getElementById("mainContent").innerHTML = `
+        <h2>تعريف شرطة رول العكل</h2>
+
+        <p>
+        شرطة العكل هي جهة أمنية عادلة تهدف إلى حفظ الأمن والنظام داخل الرول بلاي،
+        وتعمل على حماية المواطنين وتطبيق القوانين بكل عدل واحترام.
+        </p>
+    `;
+
+    toggleMenu();
+}
+
+</script>
+
+</body>
+</html>
